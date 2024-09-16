@@ -1,0 +1,65 @@
+format = "$username${custom.hostsymbol}$hostname$all"
+right_format = "$time"  # hidden unless enabled in [time] section
+# add_newline = false
+
+[username]
+style_root = "bright-red"
+style_user = "bright-green"
+format = "[$user]($style)"
+show_always = true
+
+# Display '@' if not connected via SSH; will be replaced by $ssh_symbol for ssh
+[custom.hostsymbol]
+symbol = "@"
+style = "bright-white"
+when = """ test -z "$SSH_CONNECTION" -a -z "$SSH_CLIENT" -a -z "$SSH_TTY" """
+
+[hostname]
+ssh_only = false
+ssh_symbol = "🌐"
+trim_at = ""
+style = "bright-cyan"
+format = "$ssh_symbol[$hostname]($style) "
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = "bright-yellow"
+
+[git_branch]
+format = "\\([$branch(:$remote_branch)]($style)"
+symbol = ""
+style = "bright-purple"
+
+[git_status]
+format = "( [$all_status$ahead_behind]($style))\\) "
+
+[python]
+format = "\\[[${symbol}${pyenv_prefix}(${version})( \\($virtualenv\\))]($style)\\] "
+
+[rlang]
+format = "\\[[$symbol($version)]($style)\\] "
+symbol = "???? "
+
+[conda]
+format = "[$symbol$environment]($style) "
+ignore_base = false
+
+[shell]
+bash_indicator = "\\$"
+zsh_indicator = "%"
+style = "bright-white"
+disabled = false
+
+[character]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[line_break]
+disabled = true
+
+[time]
+format = "$time"
+disabled = true

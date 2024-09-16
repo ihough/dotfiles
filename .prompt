@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Use starship prompt
+eval "$(starship init $(basename $SHELL))"
