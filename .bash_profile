@@ -1,13 +1,75 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+#
+# Dotfiles
+#
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+# * ~/.extra can be used for other settings you don't want to commit.
+for file in ~/.{path,prompt,exports,aliases,functions,extra}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+#
+# Package mangers, `$PATH`, prompt
+#
+
+# Set homebrew `$PATH` and env vars
+if [ -f /opt/homebrew/bin/brew ]; then  # Apple silicon
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f /usr/local/bin/brew ]; then  # Intel
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Prepend ~/.local/bin to `$PATH`
+# Do this after homebrew init, which clobbers `$PATH`
+export PATH=~/.local/bin:$PATH
+
+# Set mamba `$PATH`
+# Do this after prepending ~/.local/bin to `$PATH` to prefer mamba-managed packages
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="$(brew --prefix)/bin/micromamba";
+export MAMBA_ROOT_PREFIX='~/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
+#
+# Tab completions
+#
+
+# Add Homebrew's tab completions
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type __git_main &> /dev/null; then
+  __git_complete g __git_main
+fi
+
+# Add `killall` tab completion for common apps
+complete -o "nospace" -W "Dock Finder iTunes SystemUIServer Terminal" killall;
+
+#
+# Misc options
+#
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
@@ -22,29 +84,5 @@ shopt -s cdspell;
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null;
+  shopt -s "$option" 2> /dev/null;
 done;
-
-# Add tab completion for many Bash commands
-if which brew &> /dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
-	# Ensure existing Homebrew v1 completions continue to work
-	export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
-	source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
-fi;
-
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null; then
-	complete -o default -o nospace -F _git g;
-fi;
-
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-
-# Add tab completion for `defaults read|write NSGlobalDomain`
-# You could just use `-g` instead, but I like being explicit
-complete -W "NSGlobalDomain" defaults;
-
-# Add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
