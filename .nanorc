@@ -1,0 +1,11 @@
+set autoindent
+set guidestripe 100
+set linenumbers
+set mouse
+set stripecolor ,#555
+set tabsize 2
+set tabstospaces
+
+# Enable syntax highlighting
+# For Apple silicon change to /opt/homebrew/share/nano/*.nanorc
+include /usr/local/share/nano/*.nanorc
