@@ -1,30 +1,38 @@
 [alias]
 
+	# Abbreviations for basic commands.
+	br = branch
+	c = commit
+	d = diff
+	co = checkout
+	st = status
+	cfg = config list
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	l = log --oneline --graph -n 20
 
 	# View the current working tree status using the short format.
-	s = status -s
-
-	# Show the diff between the latest commit and the current state.
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state.
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	ss = status --short --branch
 
 	# Pull in remote changes for the current repository and all its submodules.
-	p = pull --recurse-submodules
+	pull-r = pull --recurse-submodules
 
 	# Clone a repository including all submodules.
-	c = clone --recursive
+	clone-r = clone --recursive
 
-	# Commit all changes.
-	ca = !git add ':(exclude,attr:builtin_objectmode=160000)' && git commit -av
+	# Commit staged changes with the following message.
+	cm = commit --message
+
+	# Commit all modified or deleted files with following message.
+	cam = commit --all --message
 
 	# Switch to a branch, creating it if necessary.
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	go = "!git switch \"$1\" 2> /dev/null || git switch -c \"$1\" #"
 
-	# Show verbose output about tags, branches or remotes
+	# Show last commit.
+	last = log -1 HEAD
+
+	# Show verbose output about tags, branches or remotes.
 	tags = tag -l
 	branches = branch --all
 	remotes = remote --verbose
@@ -35,36 +43,53 @@
 	# Amend the currently staged files to the latest commit.
 	amend = commit --amend --reuse-message=HEAD
 
-	# Credit an author on the latest commit.
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-
 	# Interactive rebase with the given number of latest commits.
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
+	rebase-n = "!git rebase -i HEAD~$1 #"
 
 	# Remove the old tag with this name and tag the latest commit with it.
-	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+	retag = "!git tag -d \"$1\" && git push origin :refs/tags/\"$1\" && git tag \"$1\" #"
 
-	# Find branches containing commit
-	fb = "!f() { git branch -a --contains $1; }; f"
+	# Find branches containing commit.
+	find-branches = "!git branch -all --contains \"$1\" #"
 
-	# Find tags containing commit
-	ft = "!f() { git describe --always --contains $1; }; f"
+	# Find tags containing commit.
+	find-tags = "!git describe --always --contains \"$1\" #"
 
-	# Find commits by source code
-	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+	# Find commits by source code.
+	find-code = "!git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S\"$1\" #"
 
-	# Find commits by commit message
-	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+	# Find commits by commit message.
+	find-messages = "!git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=\"$1\" #"
 
 	# Remove branches that have already been merged with main.
-	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	# a.k.a. ‘delete merged'
+	del-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
 
+	# Show staged changes.
+	diff-staged = diff --cached
+	ds = diff-staged
+
+	# Show diff with --color-words.
+	diff-cw = diff --color-words
+	dcw = diff-cw
+
+	# Unstage changes.
+	unstage = restore --staged
+
+	# Reset the previous commit.
+	uncommit = reset --soft HEAD^1
+
+	# # Reset the previous work-in-progress commit.
+	unwip = "!git rev-list --max-count=1 --format='%s' HEAD | grep -q '^#WIP' && git reset HEAD~1 || echo 'Previous commit was not #WIP'"
+
 	# Show the user email for the current repository.
-	whoami = config user.email
+	whoami = !echo "$(git config user.name): $(git config user.email)"
+
+	# Commit all changes as a work-in-progress.
+	wip = "!git add --all; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message '#WIP [skip ci]'"
 
 [apply]
 
@@ -78,14 +103,15 @@
 
 [core]
 
-	# Use custom `.gitignore` and `.gitattributes`.
+	# Use global `.gitignore` and `.gitattributes` if they exist.
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	# Force LF line endings.
+	eol = LF
+
+	# Don't clear screen after showing multi-page diff
+	pager = less -FX
 
 	# Make `git rebase` safer on macOS.
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
@@ -99,37 +125,41 @@
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
-[color]
-
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
-
 [color "branch"]
 
-	current = yellow reverse
-	local = yellow
-	remote = green
+	current = magenta
+	local = normal
+	remote = cyan
+	upstream = green
 
 [color "diff"]
 
+	context = normal
 	meta = yellow bold
-	frag = magenta bold # line info
+	frag = cyan  # line info
+	# func = blue
 	old = red # deletions
 	new = green # additions
+	# commit = blue
+	whitespace = white bold
+	oldMoved = red bold
+	newMoved = green bold
 
 [color "status"]
 
-	added = yellow
-	changed = green
-	untracked = cyan
-
-[commit]
-
-	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	header = normal
+	added = green
+	changed = red
+	untracked = yellow
+	branch = magenta
+	localBranch = magenta
+	remoteBranch = cyan
+	unmerged = blue
 
 [diff]
+
+	# Color moved lines of code.
+	colorMoved = zebra
 
 	# Detect copies as well as renames.
 	renames = copies
@@ -139,45 +169,26 @@
 	# Use `hexdump` to diff binary files.
 	textconv = hexdump -v -C
 
-[help]
-
-	# Automatically correct and execute mistyped commands.
-	autocorrect = 1
+[http]
+	# Needed for Google Earth repositories
+	cookiefile = ~/.gitcookies
 
 [merge]
 
-	# Include summaries of merged commits in newly created merge commit messages
+	# Include summaries of merged commits in newly created merge commit messages.
 	log = true
 
 [push]
 
-	# https://git-scm.com/docs/git-config#git-config-pushdefault
-	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
-# URL shorthands
-
-[url "git@github.com:"]
-
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-
-	insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-
-	insteadOf = "gist:"
-
 [init]
 
+	# Use "main" as default branch name.
 	defaultBranch = main
+
+[include]
+
+	# Include extra file containing user name and email.
+	path = ~/.gitconfig.user
