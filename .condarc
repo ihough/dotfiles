@@ -1,0 +1,13 @@
+# Do not automatically activate 'base' environment
+auto_activate_base: false
+
+# Do not modify promot (prompt is managed by starship)
+changeps1: false
+
+# Strict channel priority
+# Disable defaults (commercial, may vary by platform, incompatible with conda-forge)
+channels:
+  - pytorch
+  - conda-forge
+  - nodefaults
+channel_priority: strict
