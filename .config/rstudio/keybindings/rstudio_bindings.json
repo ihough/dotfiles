@@ -1,0 +1,21 @@
+{
+    "activateSource": "Cmd+1",
+    "activateConsole": "Cmd+2",
+    "activateHelp": "Cmd+3",
+    "activatePlots": "Cmd+4",
+    "activateViewer": "Cmd+5",
+    "activateEnvironment": "Cmd+6",
+    "activateFiles": "Cmd+7",
+    "activatePackages": "Cmd+8",
+    "activateHistory": "Cmd+9",
+    "addCursorAbove": "Alt+Cmd+Up",
+    "addCursorBelow": "Alt+Cmd+Down",
+    "goToFileFunction": "Cmd+P",
+    "jumpToMatching": "Shift+Cmd+\\",
+    "layoutEndZoom": "Shift+Cmd+0",
+    "nextTab": "Cmd+F12",
+    "previousTab": "Cmd+F11",
+    "restartR": "Shift+Cmd+F10",
+    "splitIntoLines": "Shift+Cmd+L",
+    "commentUncomment": "Cmd+/"
+}
