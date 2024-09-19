@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 
+set -e
+
 cd "$(dirname "${BASH_SOURCE}")"
 
+echo "Updating dotfiles repository..."
 git pull origin main
 
-function doIt() {
+function copyDotfiles() {
   rsync --exclude ".git/" \
     --exclude ".DS_Store" \
     --exclude "bootstrap.sh" \
     --exclude "macos.sh" \
     --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
-    -avh --no-perms --itemize-changes . ~
+    $1 \
+    -ah --no-perms --itemize-changes . ~
+}
+
+function doIt() {
+  copyDotfiles
   echo
   echo "Done. Restart your shell to apply the changes."
 }
@@ -19,10 +27,15 @@ function doIt() {
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
   doIt;
 else
-  read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+  echo
+  echo "The following changes will be made to your home directory ($HOME):"
+  echo
+  copyDotfiles "-n"
+  echo
+  read -p "Do you wish to continue? (y/n) " -n 1
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     doIt
   fi;
 fi;
-unset doIt
+unset doIt copyDotfiles
