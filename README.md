@@ -1,15 +1,15 @@
 # dotfiles
 
-Based on [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles.git)
+My dotfiles for [CIMENT](https://gricad-doc.univ-grenoble-alpes.fr/hpc/)
 
 ## Installation
 
 ### Using git and the bootstrap script
 
-Clone this repository wherever you want (e.g. `~/code/dotfiles`) and run `bootstrap.sh`:
+Clone this repository, switch to the `ciment` branch, and run `bootstrap.sh`:
 
 ```bash
-git clone https://github.com/ihough/dotfiles.git
+git clone --branch ciment https://github.com/ihough/dotfiles.git
 cd dotfiles
 source bootstrap.sh
 ```
@@ -26,7 +26,7 @@ To install without git:
 
 ```bash
 cd
-curl -#L https://github.com/ihough/dotfiles/tarball/main | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
+curl -#L https://github.com/ihough/dotfiles/tarball/ciment | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
 ```
 
 To update, just run that command again.
