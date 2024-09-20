@@ -20,9 +20,29 @@ function gz() {
   printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio"
 }
 
+# Log CPU and memory usage to stdout
+function log-cpu-mem() {
+  while :
+  do
+    cpu=$(top -bn1 -u $(whoami) | awk '/Cpu/{print $2}')
+    mem=$(free --mega | awk '/Mem/{print $3}')
+    date=$(date)
+    echo "$date CPU: $cpu% MEM: $mem MB"
+    sleep 1
+  done
+}
+
 # Create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$_"
+}
+
+# Launch the ssh agent
+function start-ssh-agent() {
+  if [ -z "$SSH_AUTH_SOCK" ] ; then
+    echo "Starting new SSH agent"
+    eval `/usr/bin/ssh-agent -s`
+  fi
 }
 
 # Use `tmux at <target-session>` to attach to a specific tmux session

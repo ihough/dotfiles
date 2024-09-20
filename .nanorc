@@ -22,5 +22,4 @@ set tabsize 2
 set tabstospaces
 
 # Enable syntax highlighting
-# For Apple silicon change to /opt/homebrew/share/nano/*.nanorc
-include /usr/local/share/nano/*.nanorc
+include /usr/share/nano/*.nanorc

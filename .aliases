@@ -3,6 +3,13 @@
 # Based on https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
 
 #
+# CIMENT
+#
+
+# Display node cores / memory / storage
+alias info="cat /etc/motd"
+
+#
 # Navigation
 #
 
@@ -14,11 +21,8 @@ alias .....='cd ../../../..'
 alias -- -='cd -'
 
 # Shortcuts
-alias docs='cd ~/Documents'
-alias dl='cd ~/Downloads'
-alias dt='cd ~/Desktop'
-alias gdrive='cd ~/Gdrive'
 alias code='cd ~/code'
+alias projects='cd ~/projects'
 
 #
 # Colour output
@@ -34,6 +38,10 @@ fi
 
 # Always use color output for `ls`
 alias ls='command ls --color=auto'
+
+# Always use color output for `dir` and `vdir`
+alias dir='command dir --color=auto'
+alias vdir='command vdir --color=auto'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
