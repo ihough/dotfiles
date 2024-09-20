@@ -1,7 +1,22 @@
+# HINTS
+#
+# Mac: ESC is meta key
+# PC: ALT is meta key
+#
+# M-3 = comment/uncomment selection
+# M-# = toggl line numbers
+# M-c = toggle constant cursor display
+# M-i = toggle autoindent
+# M-m = toggle mouse
+# M-p = toggle show whitespace
+# M-q = toggle convert tabs to spaces
+# M-y = toggle syntax highlighting
+
 set autoindent
+set constantshow
 set guidestripe 100
-set linenumbers
-set mouse
+# set linenumbers
+# set mouse  # when set, disables selecting text with mouse
 set stripecolor ,#555
 set tabsize 2
 set tabstospaces

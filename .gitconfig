@@ -173,6 +173,16 @@
 	# Needed for Google Earth repositories
 	cookiefile = ~/.gitcookies
 
+[include]
+
+	# Include extra file containing user name and email.
+	path = ~/.gitconfig.user
+
+[init]
+
+	# Use "main" as default branch name.
+	defaultBranch = main
+
 [merge]
 
 	# Include summaries of merged commits in newly created merge commit messages.
@@ -182,13 +192,3 @@
 
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
-
-[init]
-
-	# Use "main" as default branch name.
-	defaultBranch = main
-
-[include]
-
-	# Include extra file containing user name and email.
-	path = ~/.gitconfig.user

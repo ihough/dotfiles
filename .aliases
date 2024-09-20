@@ -77,9 +77,9 @@ alias rsync-update='rsync -avziu --progress -h'
 
 #
 # Git
-#
+# See also aliases in ~/.gitconfig
 
-alias g=git  # More aliases in .gitconfig
+alias g=git
 
 # Use git diff everywhere
 alias diff='command git diff --color --color-moved --no-ext-diff --no-index'
