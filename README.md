@@ -42,21 +42,3 @@ If `~/.gitconfig.user` exists, it will be included in `.gitconfig`. You can use 
   name = Your Name
   email = your.email@domain.com
 ```
-
-### Configure macOS
-
-The `macos.sh` script sets defaults and configuration for macOS. Run it with:
-
-```bash
-./macos.sh
-```
-
-### Install software
-
-The `Brewfile` defines packages and apps that can be installed with [Homebrew](https://brew.sh/):
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-reload
-brew bundle --file Brewfile
-```

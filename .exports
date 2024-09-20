@@ -4,7 +4,6 @@
 
 # Set default editors
 export EDITOR=nano
-export HOMEBREW_EDITOR=subl
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
@@ -25,10 +24,3 @@ export LESS_TERMCAP_md=$(tput bold; tput setaf 6)  # cyan
 
 # # Don't clear the screen after quitting a manual page.
 # export MANPAGER='less -X'
-
-# Avoid issues with `gpg` as installed via Homebrew.
-# https://stackoverflow.com/a/42265848/96656
-export GPG_TTY=$(tty)
-
-# Set DISPLAY for X11 forwarding
-export DISPLAY=:0
