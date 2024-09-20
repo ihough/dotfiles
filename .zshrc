@@ -6,9 +6,9 @@
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don't want to commit.
 for file in ~/.{path,prompt,exports,aliases,functions,extra}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
 #
 # Package mangers, `$PATH`, prompt
@@ -29,8 +29,8 @@ export PATH=~/.local/bin:$PATH
 # Do this after prepending ~/.local/bin to `$PATH` to prefer mamba-managed packages
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="$(brew --prefix)/bin/micromamba";
-export MAMBA_ROOT_PREFIX='~/micromamba';
+export MAMBA_EXE="$(brew --prefix)/bin/micromamba"
+export MAMBA_ROOT_PREFIX='~/micromamba'
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"

@@ -25,7 +25,7 @@ function doIt() {
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-  doIt;
+  doIt
 else
   echo
   echo "The following changes will be made to your home directory ($HOME):"
@@ -36,6 +36,6 @@ else
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     doIt
-  fi;
-fi;
+  fi
+fi
 unset doIt copyDotfiles

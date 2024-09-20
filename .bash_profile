@@ -6,9 +6,9 @@
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don't want to commit.
 for file in ~/.{path,prompt,exports,aliases,functions,extra}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
 #
 # Package mangers, `$PATH`, prompt
@@ -29,8 +29,8 @@ export PATH=~/.local/bin:$PATH
 # Do this after prepending ~/.local/bin to `$PATH` to prefer mamba-managed packages
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="$(brew --prefix)/bin/micromamba";
-export MAMBA_ROOT_PREFIX='~/micromamba';
+export MAMBA_EXE="$(brew --prefix)/bin/micromamba"
+export MAMBA_ROOT_PREFIX='~/micromamba'
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
@@ -65,24 +65,24 @@ if type __git_main &> /dev/null; then
 fi
 
 # Add `killall` tab completion for common apps
-complete -o "nospace" -W "Dock Finder iTunes SystemUIServer Terminal" killall;
+complete -o "nospace" -W "Dock Finder iTunes SystemUIServer Terminal" killall
 
 #
 # Misc options
 #
 
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+shopt -s nocaseglob
 
 # Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
+shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
+shopt -s cdspell
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-  shopt -s "$option" 2> /dev/null;
-done;
+  shopt -s "$option" 2> /dev/null
+done
