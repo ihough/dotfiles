@@ -11,6 +11,7 @@ function copyDotfiles() {
   rsync --exclude ".git/" \
     --exclude ".DS_Store" \
     --exclude "bootstrap.sh" \
+    --exclude "get-local-changes.sh" \
     --exclude "macos.sh" \
     --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
