@@ -52,18 +52,18 @@ alias egrep='egrep --color=auto'
 # ls
 #
 
-# List all files colorized in long format
-alias l='ls -lFh'
+# List all files colorized in long format, directories first
+alias l='ls -lFh --group-directories-first'
 
-# List all files colorized in long format, excluding . and ..
-alias la='ls -lAFh'
-alias ll='ls -lAFh'
+# List all files colorized in long format, excluding . and .., directories first
+alias la='ls -lAFh --group-directories-first'
+alias ll='ls -lAFh --group-directories-first'
 
 # List only directories
 alias ld="ls -lFh | grep --color=never '^d'"
 
-# List only hidden files
-alias lh='ls -ld .?*'
+# List only hidden files, directories first
+alias lh='ls -ld --group-directories-first .?*'
 
 #
 # Safety - prompt before overwriting / removing files
