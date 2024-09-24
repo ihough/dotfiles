@@ -1,8 +1,10 @@
 # Source this script to activate micromamba:
 #   source ~/init-mamba.sh
 # Or, run in current shell
-#  . ~/init-mamba.sh
+#   . ~/init-mamba.sh
+
 echo "Activating micromamba"
+
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
 export MAMBA_EXE='/home/houghi/.local/bin/micromamba';
@@ -15,6 +17,7 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
 if ! [ -z "$1" ]; then
   echo "Loading environment $1"
   micromamba activate "$1"
