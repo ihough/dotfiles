@@ -18,6 +18,12 @@ fi
 unset __mamba_setup
 # <<< mamba initialize <<<
 
+# Enable tab completion for `mm` by marking it as an alias for `micromamba`
+if type _umamba_bash_completions &> /dev/null; then
+  complete -o default -F _umamba_bash_completions mm
+fi
+
+# Activate environment if specified
 if ! [ -z "$1" ]; then
   echo "Loading environment $1"
   micromamba activate "$1"
