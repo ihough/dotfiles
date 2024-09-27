@@ -4,136 +4,99 @@ tap "homebrew/bundle"
 # Formulae
 #
 
-# Modern bash
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Programmable completion for Bash 4.2+
 brew "bash-completion@2"
-
-# Disk usage/free utility
+# Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
-
-# Modern git + helpers
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
 brew "git-filter-repo"
-
-# Process viewer
+# Improved top (interactive process viewer)
 brew "htop"
-
-# Fast conda-like package manager
+# Fast Cross-Platform Package Manager
 brew "micromamba"
-
-# Simple text editor
+# Free (GNU) replacement for the Pico text editor
 brew "nano"
-
-# File renaming utility
+# Perl-powered file rename script with many helpful built-ins
 brew "rename"
-
-# Modern rsync
+# Utility that provides fast incremental file transfer
 brew "rsync"
-
-# Cross-shell prompt manager
+# Cross-shell prompt for astronauts
 brew "starship"
-
-# Ack-like code searcher
+# Code-search similar to ack
 brew "the_silver_searcher"
-
 # Terminal multiplexer
 brew "tmux"
-
-# Tree display for directories
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
-
-# File retriever
+# Internet file retriever
 brew "wget"
-
-# Zsh tab-completion
+# Additional completion definitions for zsh
 brew "zsh-completions"
 
 #
 # Casks
 #
 
-# Privacy-focused web browser
+# Web browser focusing on privacy
 cask "brave-browser"
-
-# E-book manager
+# E-books management software
 cask "calibre"
-
-# Encryption tool
+# Multi-platform client-side cloud file encryption tool
 cask "cryptomator"
-
-# Chat app
+# Voice and text chat software
 cask "discord"
-
 # Web browser
 cask "firefox"
-
 # Nerd font
 cask "font-fira-code"
-
-# Git GUI
+# GIT client
 cask "fork"
-
 # Web browser
 cask "google-chrome"
-
-# Desktop sync client
+# Client for the Google Drive storage service
 cask "google-drive"
-
-# Modern terminal
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
-
-# Keyboard customizer
+# Keyboard customiser
 cask "karabiner-elements"
-
-# Chat app
+# Open-source, self-hosted Slack-alternative
 cask "mattermost"
-
-# Desktop sync client
+# Desktop sync client for Nextcloud software products
 cask "nextcloud"
-
-# netCDF / HDF / GRIB data viewer
+# Plot geo-referenced data from netCDF, HDF, and GRIB
 cask "panoply"
-
-# GIS
+# Geographic Information System
 cask "qgis"
-
-# Quicklook for markdown files
+# Quick Look generator for Markdown files
 cask "qlmarkdown"
-
-# Quicklook for plain text files
+# Quick Look plugin for plaintext files without an extension
 cask "qlstephen"
-
-# Scientific publishing system
+# Scientific and technical publishing system built on Pandoc
 cask "quarto"
-
-# Launcher app
+# Productivity application
 cask "quicksilver"
-
-# CRAN-built R (needed to install binary packages)
+# Environment for statistical computing and graphics
+# Note: CRAN-built R (this cask) is needed for binary packages
 cask "r"
-
-# Window resizing utility
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-
-# Code editor for R and python
+# Data science software focusing on R and Python
 cask "rstudio"
-
-# Chat app
+# Team communication and collaboration software
 cask "slack"
-
-# Text editor
+# Text editor for code, markup and prose
 cask "sublime-text"
-
-# Quicklook code syntax highlighting
+# Quicklook extension for source files
 cask "syntax-highlight"
-
-# JDK (needed for Panoply)
+# JDK from the Eclipse Foundation (Adoptium) [needed for Panoply]
 cask "temurin"
-
-# Code editor
+# Open-source code editor
 cask "visual-studio-code"
-
-# X window system
+# Open-source version of the X.Org X Window System
 cask "xquartz"
 
 #
@@ -142,33 +105,26 @@ cask "xquartz"
 
 # Show documentation in sidebar
 vscode "bierner.docs-view"
-
 # Code linter + formatter
 vscode "charliermarsh.ruff"
-
 # Colour theme
 vscode "equinusocio.vsc-material-theme"
 vscode "equinusocio.vsc-material-theme-icons"
-
 # Path autocompletion
 vscode "ionutvmi.path-autocomplete"
-
 # Python language extensions
 vscode "ms-python.debugpy"
 vscode "ms-python.pylint"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
-
 # Jupyter language extensions
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
-
 # R language extensions
 vscode "quarto.quarto"
 vscode "reditorsupport.r"
-
 # TOML syntax highlighting
 vscode "tamasfe.even-better-toml"
