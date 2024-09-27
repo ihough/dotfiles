@@ -53,6 +53,8 @@ cask "discord"
 cask "firefox"
 # Nerd font
 cask "font-fira-code"
+# Nerd font with many icons
+cask "font-fira-code-nerd-font"
 # GIT client
 cask "fork"
 # Web browser
