@@ -67,6 +67,8 @@ cask "iterm2"
 cask "karabiner-elements"
 # Open-source, self-hosted Slack-alternative
 cask "mattermost"
+# Research management tool
+cask "mendeley-reference-manager"
 # Desktop sync client for Nextcloud software products
 cask "nextcloud"
 # Plot geo-referenced data from netCDF, HDF, and GRIB
