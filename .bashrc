@@ -34,6 +34,9 @@ if type __git_main &> /dev/null; then
   __git_complete g __git_main
 fi
 
+# Enable tab completion for `mm` by marking it as an alias for 'micromamba'
+complete -o default -F _umamba_bash_completions mm
+
 #
 # Misc options
 #
