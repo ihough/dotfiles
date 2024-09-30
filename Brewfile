@@ -102,6 +102,8 @@ cask "temurin"
 cask "visual-studio-code"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# Video communication and virtual meeting platform
+cask "zoom"
 
 #
 # VSCode extensions
