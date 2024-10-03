@@ -51,11 +51,11 @@ alias l='ls -lFh'
 alias la='ls -lAFh'
 alias ll='ls -lAFh'
 
-# List only directories
+# List only directories in current dir
 alias ld="ls -lFh | grep --color=never '^d'"
 
-# List only hidden files
-alias lh='ls -ld .?*'
+# List only hidden files in current dir
+alias lh='ls -lFhd .?*'
 
 #
 # Safety - prompt before overwriting / removing files
