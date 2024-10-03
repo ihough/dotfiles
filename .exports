@@ -26,3 +26,7 @@ export LESS_TERMCAP_md=$(tput bold; tput setaf 6)  # cyan
 
 # # Don't clear the screen after quitting a manual page.
 # export MANPAGER='less -X'
+
+# Bash: safer glob expansion
+# https://dwheeler.com/essays/filenames-in-shell.html
+export GLOBIGNORE='-*:.:..'
