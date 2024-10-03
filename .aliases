@@ -59,11 +59,11 @@ alias l='ls -lFh --group-directories-first'
 alias la='ls -lAFh --group-directories-first'
 alias ll='ls -lAFh --group-directories-first'
 
-# List only directories
+# List only directories in current dir
 alias ld="ls -lFh | grep --color=never '^d'"
 
-# List only hidden files, directories first
-alias lh='ls -ld --group-directories-first .?*'
+# List only hidden files in current dir, directories first
+alias lh='ls -lFhd --group-directories-first .?*'
 
 #
 # Safety - prompt before overwriting / removing files
