@@ -21,7 +21,7 @@ unset file
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix && [ -z "$PS1" ]; then
+if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
@@ -29,13 +29,23 @@ if ! shopt -oq posix && [ -z "$PS1" ]; then
   fi
 fi
 
+# Force git completions to load - not sure why this is needed
+. /usr/share/bash-completion/completions/git
+
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_main &> /dev/null; then
   __git_complete g __git_main
 fi
 
-# Enable tab completion for `mm` by marking it as an alias for 'micromamba'
-complete -o default -F _umamba_bash_completions mm
+# Enable tab completion for `micromamba` and `mm`
+if command -v micromamba &> /dev/null; then
+  _umamba_bash_completions()
+  {
+    COMPREPLY=($(micromamba completer "${COMP_WORDS[@]:1}"))
+  }
+  complete -o default -F _umamba_bash_completions micromamba
+  complete -o default -F _umamba_bash_completions mm
+fi
 
 #
 # Misc options
