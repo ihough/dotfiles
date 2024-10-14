@@ -24,6 +24,7 @@ fi
 # Prepend ~/.local/bin to `$PATH`
 # Do this after homebrew init, which clobbers `$PATH`
 export PATH=~/.local/bin:$PATH
+export PATH="~/.local/bin:$PATH"
 
 # Set mamba `$PATH`
 # Do this after prepending ~/.local/bin to `$PATH` to prefer mamba-managed packages
