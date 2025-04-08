@@ -96,6 +96,13 @@ alias diff='command git diff --color --color-moved --no-ext-diff --no-index'
 alias diff-cw='command git diff --color --color-moved --color-words --no-ext-diff --no-index'
 
 #
+# tmux
+#
+
+# Fix ssh agent forwarding after reconnecting to a tmux session by updating SSH_AUTH_SOCK
+alias tmux-fix-ssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+
+#
 # Misc
 #
 
