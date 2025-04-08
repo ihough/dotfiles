@@ -18,7 +18,6 @@ alias docs='cd ~/Documents'
 alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
 alias gdrive='cd ~/Gdrive'
-alias code='cd ~/code'
 
 #
 # Colour output
@@ -93,6 +92,7 @@ alias diff-cw='command git diff --color --color-moved --color-words --no-ext-dif
 
 # Programs
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 alias mm=micromamba
 alias python=python3
 alias pip=pip3
