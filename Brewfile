@@ -22,8 +22,6 @@ brew "git"
 brew "git-filter-repo"
 # Improved top (interactive process viewer)
 brew "htop"
-# Configurable static site generator
-brew "hugo"
 # Fast Cross-Platform Package Manager
 brew "micromamba"
 # Free (GNU) replacement for the Pico text editor

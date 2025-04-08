@@ -13,12 +13,10 @@
     "highlight_r_function_calls": true,
     "highlight_selected_line": true,
     "initial_working_directory": "~/CloudUGA/code/misc",
-    "jobs_tab_visibility": "shown",
+    "jobs_tab_visibility": "closed",
     "knit_working_dir": "project",
     "line_ending_conversion": "posix",
     "margin_column": 100,
-    "new_proj_git_init": true,
-    "new_proj_use_renv": true,
     "panes": {
         "quadrants": [
             "Source",
@@ -56,12 +54,13 @@
     "save_workspace": "never",
     "show_doc_outline_rmd": true,
     "show_invisibles": true,
-    "source_with_echo": true,
     "strip_trailing_whitespace": true,
     "style_diagnostics": true,
     "syntax_color_console": true,
     "terminal_bell_style": "none",
     "visual_markdown_editing_show_margin": true,
     "warn_if_no_such_variable_in_scope": true,
-    "warn_variable_defined_but_not_used": true
+    "warn_variable_defined_but_not_used": true,
+    "insert_native_pipe_operator": true,
+    "code_formatter": "styler"
 }

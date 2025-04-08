@@ -30,5 +30,5 @@ export LESS_TERMCAP_md=$(tput bold; tput setaf 6)  # cyan
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty)
 
-# Set DISPLAY for X11 forwarding
-export DISPLAY=:0
+## Set DISPLAY for X11 forwarding
+#export DISPLAY=:0

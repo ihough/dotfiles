@@ -123,6 +123,9 @@
 	# Force LF line endings.
 	eol = LF
 
+  # Track file modes
+  fileMode = true
+
 	# Don't clear screen after showing multi-page diff
 	pager = less -FX
 
@@ -181,10 +184,6 @@
 
 	# Use `hexdump` to diff binary files.
 	textconv = hexdump -v -C
-
-[http]
-	# Needed for Google Earth repositories
-	cookiefile = ~/.gitcookies
 
 [include]
 
