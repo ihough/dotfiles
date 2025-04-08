@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Use starship prompt
-eval "$(starship init $(basename $SHELL))"
+[ "$STARSHIP_DISABLE" = "true" ] || eval "$(starship init $(basename $SHELL))"

@@ -8,6 +8,12 @@
 	st = status
 	cfg = config list
 
+  # Interactively stage changes
+  ai = add --interactive
+
+  # Interactively stage hunks of a file
+  ap = add --patch
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --oneline --graph -n 20
 
@@ -40,8 +46,8 @@
 	# List aliases.
 	aliases = config --get-regexp alias
 
-	# Amend the currently staged files to the latest commit.
-	amend = commit --amend --reuse-message=HEAD
+	# Add the currently staged files to the latest commit.
+	fixup = commit --amend --reuse-message=HEAD
 
 	# Interactive rebase with the given number of latest commits.
 	rebase-n = "!git rebase -i HEAD~$1 #"
@@ -68,6 +74,12 @@
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
 
+  # Stage all whitespace changes (unstages any non-whitespace changes that were already staged)
+  add-space = "!git add --all && git diff --cached --ignore-all-space | git apply --cached --reverse"
+
+  # Unstage all non-whitespace changes
+  unstage-nonspace = "!git diff --cached --ignore-all-space --ignore-blank-lines | git apply --cached --reverse"
+
 	# Show staged changes.
 	diff-staged = diff --cached
 	ds = diff-staged
@@ -77,6 +89,7 @@
 	dcw = diff-cw
 
 	# Unstage changes.
+	u = restore --staged
 	unstage = restore --staged
 
 	# Reset the previous commit.
