@@ -4,18 +4,26 @@ tap "homebrew/bundle"
 # Formulae
 #
 
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Programmable completion for Bash 4.2+
 brew "bash-completion@2"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
+# Libraries and data formats for array-oriented scientific data
+brew "netcdf"
+# Geospatial Data Abstraction Library
+brew "gdal"
 # Distributed revision control system
 brew "git"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # Improved top (interactive process viewer)
 brew "htop"
+# Configurable static site generator
+brew "hugo"
 # Fast Cross-Platform Package Manager
 brew "micromamba"
 # Free (GNU) replacement for the Pico text editor
@@ -41,6 +49,8 @@ brew "zsh-completions"
 # Casks
 #
 
+# View, print, and comment on PDF documents
+cask "adobe-acrobat-reader"
 # Web browser focusing on privacy
 cask "brave-browser"
 # E-books management software
@@ -73,6 +83,8 @@ cask "mendeley-reference-manager"
 cask "nextcloud"
 # Plot geo-referenced data from netCDF, HDF, and GRIB
 cask "panoply"
+# VPN client focusing on security
+cask "protonvpn"
 # Geographic Information System
 cask "qgis"
 # Quick Look generator for Markdown files
@@ -104,6 +116,8 @@ cask "visual-studio-code"
 cask "xquartz"
 # Video communication and virtual meeting platform
 cask "zoom"
+# Collect, organise, cite, and share research sources
+cask "zotero"
 
 #
 # VSCode extensions
@@ -115,7 +129,11 @@ vscode "bierner.docs-view"
 vscode "charliermarsh.ruff"
 # Colour theme
 vscode "equinusocio.vsc-material-theme"
-vscode "equinusocio.vsc-material-theme-icons"
+# Fortran language extensions
+vscode "fortran-lang.linter-gfortran"
+# Github Copilot
+vscode "github.copilot"
+vscode "github.copilot-chat"
 # Path autocompletion
 vscode "ionutvmi.path-autocomplete"
 # Python language extensions
@@ -129,6 +147,8 @@ vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
+# C++ langauge extensions
+vscode "ms-vscode.cpptools"
 # Remote SSH
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"

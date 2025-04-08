@@ -60,3 +60,9 @@ The `Brewfile` defines packages and apps that can be installed with [Homebrew](h
 reload
 brew bundle --file Brewfile
 ```
+
+You can update the Brewfile using:
+
+```bash
+brew bundle dump --describe
+```
