@@ -66,3 +66,13 @@ You can update the Brewfile using:
 ```bash
 brew bundle dump --describe
 ```
+
+## Updates
+
+To copy changes from your local dotfiles (in `$HOME`) to this repository, run `get-local-changes.sh`:
+
+```bash
+source get-local-changes.sh
+```
+
+Then examine and commit the desired changes.
