@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Include /workdir2/[team]/[user]/bin
+PATH="/workdir2/chianti/houghi/bin:$PATH"
+
 # Set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
