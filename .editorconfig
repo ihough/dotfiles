@@ -8,18 +8,18 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.json]
-indent_style = tab
+indent_style = space
 
 [Makefile]
 indent_style = tab
 
 [*.py]
-indent_style = space
 indent_size = 4
+indent_style = space
 
 # Settings files
-[.gitconfig,*.sublime-settings]
+[{.gitconfig,*.sublime-settings}]
 indent_style = tab
 
-[*.vim,.viminfo,.vimrc]
+[{*.vim,.viminfo,.vimrc}]
 indent_style = tab
