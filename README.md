@@ -42,3 +42,13 @@ If `~/.gitconfig.user` exists, it will be included in `.gitconfig`. You can use 
   name = Your Name
   email = your.email@domain.com
 ```
+
+## Updates
+
+To copy changes from your local dotfiles (in `$HOME`) to this repository, run `get-local-changes.sh`:
+
+```bash
+source get-local-changes.sh
+```
+
+Then examine and commit the desired changes.
