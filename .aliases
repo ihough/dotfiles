@@ -21,7 +21,6 @@ alias .....='cd ../../../..'
 alias -- -='cd -'
 
 # Shortcuts
-alias code='cd ~/code'
 alias projects='cd ~/projects'
 
 #
