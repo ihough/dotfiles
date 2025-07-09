@@ -62,10 +62,13 @@
 	find-tags = "!git describe --always --contains \"$1\" #"
 
 	# Find commits by source code.
-	find-code = "!git log --pretty=format:'%C(yellow)%h	%Cblue%ad	%Creset%s%Cgreen	[%cn] %Cred%d' --decorate --date=short -S\"$1\" #"
+	find-code = "!git log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short -S\"$1\" #"
 
 	# Find commits by commit message.
-	find-messages = "!git log --pretty=format:'%C(yellow)%h	%Cblue%ad	%Creset%s%Cgreen	[%cn] %Cred%d' --decorate --date=short --grep=\"$1\" #"
+	find-messages = "!git log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short --grep=\"$1\" #"
+
+	# Find code in entire history
+	find-in-history = "!git grep \"$1\" $(git rev-list --all) #"
 
 	# Remove branches that have already been merged with main.
 	# a.k.a. ‘delete merged'
@@ -95,7 +98,7 @@
 	# Reset the previous commit.
 	uncommit = reset --soft HEAD^1
 
-	# # Reset the previous work-in-progress commit.
+	# Reset the previous work-in-progress commit.
 	unwip = "!git rev-list --max-count=1 --format='%s' HEAD | grep -q '^#WIP' && git reset HEAD~1 || echo 'Previous commit was not #WIP'"
 
 	# Show the user email for the current repository.
@@ -156,8 +159,8 @@
 	meta = yellow bold
 	frag = cyan	# line info
 	# func = blue
-	old = red # deletions
-	new = green # additions
+	old = red  # deletions
+	new = green  # additions
 	# commit = blue
 	whitespace = white bold
 	oldMoved = red bold
