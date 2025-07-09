@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")"
 
 echo "Updating dotfiles repository..."
-git pull --ff-only origin ciment
+git pull --ff-only origin ige-calcul
 
 function copyDotfiles() {
   rsync --exclude ".git/" \

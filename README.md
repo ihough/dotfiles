@@ -1,15 +1,15 @@
 # dotfiles
 
-My dotfiles for [CIMENT](https://gricad-doc.univ-grenoble-alpes.fr/hpc/)
+My dotfiles for [ige-calcul](https://ige-calcul.github.io/public-docs/docs/clusters/Ige/ige-calcul1.html)
 
 ## Installation
 
 ### Using git and the bootstrap script
 
-Clone this repository, switch to the `ciment` branch, and run `bootstrap.sh`:
+Clone this repository, switch to the `ige-calcul` branch, and run `bootstrap.sh`:
 
 ```bash
-git clone --branch ciment https://github.com/ihough/dotfiles.git
+git clone --branch ige-calcul https://github.com/ihough/dotfiles.git
 cd dotfiles
 source bootstrap.sh
 ```
@@ -26,7 +26,7 @@ To install without git:
 
 ```bash
 cd
-curl -#L https://github.com/ihough/dotfiles/tarball/ciment | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
+curl -#L https://github.com/ihough/dotfiles/tarball/ige-calcul | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
 ```
 
 To update, just run that command again.

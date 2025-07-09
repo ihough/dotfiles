@@ -1,5 +1,0 @@
-# Tempdir on nodes
-TMP=/var/tmp
-
-# Set timezone to avoid lubridate warning about timedatectl
-TZ="Europe/Paris"

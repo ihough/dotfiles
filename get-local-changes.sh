@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")"
 
 function listTracked() {
-  git ls-tree -r --name-only ciment \
+  git ls-tree -r --name-only ige-calcul \
     | grep -Ev '(bootstrap.sh|get-local-changes.sh|macos.sh|README.md|LICENSE-MIT.txt)'
 }
 

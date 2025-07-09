@@ -7,12 +7,29 @@
 #
 
 # Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
+# * ~/.path can be used to extend PATH.
 # * ~/.extra can be used for other settings you don't want to commit.
 for file in ~/.{path,prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
+
+#
+# Init micromamba
+#
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba init' !!
+export MAMBA_EXE='/home/houghi/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/workdir2/chianti/houghi/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
 
 #
 # Tab completions
