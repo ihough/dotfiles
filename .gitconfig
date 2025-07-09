@@ -8,11 +8,11 @@
 	st = status
 	cfg = config list
 
-  # Interactively stage changes
-  ai = add --interactive
+	# Interactively stage changes
+	ai = add --interactive
 
-  # Interactively stage hunks of a file
-  ap = add --patch
+	# Interactively stage hunks of a file
+	ap = add --patch
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --oneline --graph -n 20
@@ -62,10 +62,10 @@
 	find-tags = "!git describe --always --contains \"$1\" #"
 
 	# Find commits by source code.
-	find-code = "!git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S\"$1\" #"
+	find-code = "!git log --pretty=format:'%C(yellow)%h	%Cblue%ad	%Creset%s%Cgreen	[%cn] %Cred%d' --decorate --date=short -S\"$1\" #"
 
 	# Find commits by commit message.
-	find-messages = "!git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=\"$1\" #"
+	find-messages = "!git log --pretty=format:'%C(yellow)%h	%Cblue%ad	%Creset%s%Cgreen	[%cn] %Cred%d' --decorate --date=short --grep=\"$1\" #"
 
 	# Remove branches that have already been merged with main.
 	# a.k.a. ‘delete merged'
@@ -74,11 +74,11 @@
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
 
-  # Stage all whitespace changes (unstages any non-whitespace changes that were already staged)
-  add-space = "!git add --all && git diff --cached --ignore-all-space | git apply --cached --reverse"
+	# Stage all whitespace changes (unstages any non-whitespace changes that were already staged)
+	add-space = "!git add --all && git diff --cached --ignore-all-space | git apply --cached --reverse"
 
-  # Unstage all non-whitespace changes
-  unstage-nonspace = "!git diff --cached --ignore-all-space --ignore-blank-lines | git apply --cached --reverse"
+	# Unstage all non-whitespace changes
+	unstage-nonspace = "!git diff --cached --ignore-all-space --ignore-blank-lines | git apply --cached --reverse"
 
 	# Show staged changes.
 	diff-staged = diff --cached
@@ -89,7 +89,7 @@
 	dcw = diff-cw
 
 	# Unstage changes.
-  u = restore --staged
+	u = restore --staged
 	unstage = restore --staged
 
 	# Reset the previous commit.
@@ -125,8 +125,8 @@
 	# Force LF line endings.
 	eol = LF
 
-  # Track file modes
-  fileMode = true
+	# Track file modes
+	fileMode = true
 
 	# Don't clear screen after showing multi-page diff
 	pager = less -FX
@@ -154,7 +154,7 @@
 
 	context = normal
 	meta = yellow bold
-	frag = cyan  # line info
+	frag = cyan	# line info
 	# func = blue
 	old = red # deletions
 	new = green # additions
@@ -186,10 +186,6 @@
 
 	# Use `hexdump` to diff binary files.
 	textconv = hexdump -v -C
-
-[http]
-	# Needed for Google Earth repositories
-	cookiefile = ~/.gitcookies
 
 [include]
 
