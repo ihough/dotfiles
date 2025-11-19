@@ -1,15 +1,15 @@
 # dotfiles
 
-Based on [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles.git)
+My dotfiles for [Spirit](https://documentations.ipsl.fr/MESO_User/spirit_clusters/head_nodes.html)
 
 ## Installation
 
 ### Using git and the bootstrap script
 
-Clone this repository wherever you want (e.g. `~/code/dotfiles`) and run `bootstrap.sh`:
+Clone this repository, switch to the `spirit` branch, and run `bootstrap.sh`:
 
 ```bash
-git clone https://github.com/ihough/dotfiles.git
+git clone --branch spirit https://github.com/ihough/dotfiles.git
 cd dotfiles
 source bootstrap.sh
 ```
@@ -26,7 +26,7 @@ To install without git:
 
 ```bash
 cd
-curl -#L https://github.com/ihough/dotfiles/tarball/main | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
+curl -#L https://github.com/ihough/dotfiles/tarball/spirit | tar -xzv --strip-components 1 --exclude={bootstrap.sh,LICENSE-MIT.txt,README.md}
 ```
 
 To update, just run that command again.
@@ -41,30 +41,6 @@ If `~/.gitconfig.user` exists, it will be included in `.gitconfig`. You can use 
 [user]
   name = Your Name
   email = your.email@domain.com
-```
-
-### Configure macOS
-
-The `macos.sh` script sets defaults and configuration for macOS. Run it with:
-
-```bash
-./macos.sh
-```
-
-### Install software
-
-The `Brewfile` defines packages and apps that can be installed with [Homebrew](https://brew.sh/):
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-reload
-brew bundle --file Brewfile
-```
-
-You can update the Brewfile using:
-
-```bash
-brew bundle dump --describe
 ```
 
 ## Updates

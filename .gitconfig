@@ -119,6 +119,8 @@
 
 [core]
 
+	editor = nano
+
 	# Use global `.gitignore` and `.gitattributes` if they exist.
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes

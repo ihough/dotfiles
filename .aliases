@@ -3,6 +3,13 @@
 # Based on https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
 
 #
+# CIMENT
+#
+
+# Display node cores / memory / storage
+alias info="cat /etc/motd"
+
+#
 # Navigation
 #
 
@@ -14,10 +21,7 @@ alias .....='cd ../../../..'
 alias -- -='cd -'
 
 # Shortcuts
-alias docs='cd ~/Documents'
-alias dl='cd ~/Downloads'
-alias dt='cd ~/Desktop'
-alias gdrive='cd ~/Gdrive'
+alias projects='cd ~/projects'
 
 #
 # Colour output
@@ -34,6 +38,10 @@ fi
 # Always use color output for `ls`
 alias ls='command ls --color=auto'
 
+# Always use color output for `dir` and `vdir`
+alias dir='command dir --color=auto'
+alias vdir='command vdir --color=auto'
+
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -43,18 +51,18 @@ alias egrep='egrep --color=auto'
 # ls
 #
 
-# List all files colorized in long format
-alias l='ls -lFh'
+# List all files colorized in long format, directories first
+alias l='ls -lFh --group-directories-first'
 
-# List all files colorized in long format, excluding . and ..
-alias la='ls -lAFh'
-alias ll='ls -lAFh'
+# List all files colorized in long format, excluding . and .., directories first
+alias la='ls -lAFh --group-directories-first'
+alias ll='ls -lAFh --group-directories-first'
 
 # List only directories in current dir
 alias ld="ls -lFh | grep --color=never '^d'"
 
-# List only hidden files in current dir
-alias lh='ls -lFhd .?*'
+# List only hidden files in current dir, directories first
+alias lh='ls -lFhd --group-directories-first .?*'
 
 #
 # Safety - prompt before overwriting / removing files
@@ -87,90 +95,32 @@ alias diff='command git diff --color --color-moved --no-ext-diff --no-index'
 alias diff-cw='command git diff --color --color-moved --color-words --no-ext-diff --no-index'
 
 #
+# tmux
+#
+
+# Fix ssh agent forwarding after reconnecting to a tmux session by updating SSH_AUTH_SOCK
+alias tmux-fix-ssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+
+#
 # Misc
 #
 
 # Programs
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 alias mm=micromamba
 alias python=python3
 alias pip=pip3
 
-# Enable aliases to be sudo'ed
-alias sudo='sudo '
-
-# Get week number
-alias week='date +%V'
-
-# # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-# alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
-
-# IP addresses
-alias myip='curl -s myip.dnsomatic.com && echo'
-alias localip='echo "Ethernet: $(ipconfig getifaddr en5)\nWi-Fi: $(ipconfig getifaddr en0)"'
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Flush Directory Service cache
-alias flush='dscacheutil -flushcache && killall -HUP mDNSResponder'
-
-# Clean up LaunchServices to remove duplicates in the “Open With” menu
-alias lscleanup='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
-
-# Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd='hexdump -C'
-
-# macOS has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum=md5
-
-# macOS has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum=shasum
-
 # Trim new lines and copy to clipboard
 alias c="tr -d '\n' | pbcopy"
-
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Use command+shift+period to show hidden files in Finder
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
-alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 
 # URL-encode strings
 alias urlencode="python -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]));'"
 alias urldecode="python -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]));'"
 
-# Disable Spotlight
-alias spotoff='sudo mdutil -a -i off'
-
-# Enable Spotlight
-alias spoton='sudo mdutil -a -i on'
-
-# PlistBuddy alias, because sometimes `defaults` just doesn't cut it
-alias plistbuddy=/usr/libexec/PlistBuddy
-
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
 alias map='xargs -n1'
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "${method}"="lwp-request -m '${method}'"
-done
-
-# # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-# alias stfu="osascript -e 'set volume output muted true'"
-# alias pumpitup="osascript -e 'set volume output volume 100'"
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper' | grep '\-\-type=renderer' | grep -v 'extension-process' | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Lock the screen (when going AFK)
-alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
