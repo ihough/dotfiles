@@ -1,11 +1,12 @@
+# Generated with:
+#   brew bundle dump --describe
+
 tap "homebrew/bundle"
 
 #
 # Formulae
 #
 
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Programmable completion for Bash 4.2+
@@ -22,10 +23,14 @@ brew "git"
 brew "git-filter-repo"
 # Improved top (interactive process viewer)
 brew "htop"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
 # Fast Cross-Platform Package Manager
 brew "micromamba"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
 # Utility that provides fast incremental file transfer
@@ -95,7 +100,7 @@ cask "quarto"
 cask "quicksilver"
 # Environment for statistical computing and graphics
 # Note: CRAN-built R (this cask) is needed for binary packages
-cask "r"
+cask "r-app"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Data science software focusing on R and Python
@@ -108,6 +113,10 @@ cask "sublime-text"
 cask "syntax-highlight"
 # JDK from the Eclipse Foundation (Adoptium) [needed for Panoply]
 cask "temurin"
+# Customizable email client
+cask "thunderbird"
+# Git client focusing on power and productivity
+cask "tower"
 # Open-source code editor
 cask "visual-studio-code"
 # Open-source version of the X.Org X Window System
@@ -125,13 +134,13 @@ cask "zotero"
 vscode "bierner.docs-view"
 # Code linter + formatter
 vscode "charliermarsh.ruff"
-# Colour theme
-vscode "equinusocio.vsc-material-theme"
 # Fortran language extensions
 vscode "fortran-lang.linter-gfortran"
 # Github Copilot
 vscode "github.copilot"
 vscode "github.copilot-chat"
+# Colour theme
+vscode "github.github-vscode-theme"
 # Path autocompletion
 vscode "ionutvmi.path-autocomplete"
 # Python language extensions
@@ -139,20 +148,24 @@ vscode "ms-python.debugpy"
 vscode "ms-python.pylint"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
 # Jupyter language extensions
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
-# C++ langauge extensions
+# C++ language extensions
 vscode "ms-vscode.cpptools"
 # Remote SSH
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.remote-explorer"
+# Icon theme
+vscode "pkief.material-icon-theme"
 # R language extensions
 vscode "quarto.quarto"
 vscode "reditorsupport.r"
+vscode "reditorsupport.r-syntax"
 # TOML syntax highlighting
 vscode "tamasfe.even-better-toml"
