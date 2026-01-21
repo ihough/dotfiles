@@ -207,8 +207,11 @@
 
 [push]
 
-	# Make `git push` push relevant annotated tags when pushing branches out.
+	# Push relevant annotated tags when pushing branches out.
 	followTags = true
+
+  # Automatically create remote branch when no upstream tracking exists
+  autoSetupRemote = true
 
 # URL shorthands
 
