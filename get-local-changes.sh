@@ -10,10 +10,10 @@ function listTracked() {
 }
 
 for file in $(listTracked); do
-  if [ -f ~/"$file" ]; then
-    cp -fv ~/"$file" "$file"
+  if [ -f "$HOME/$file" ]; then
+    cp -fv "$HOME/$file" "$file"
   else
-    echo "~/$file does not exist"
+    echo "$HOME/$file does not exist"
     rm -iv "$file"
   fi
 done
