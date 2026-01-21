@@ -13,7 +13,7 @@
     "highlight_r_function_calls": true,
     "highlight_selected_line": true,
     "initial_working_directory": "~/CloudUGA/code/misc",
-    "jobs_tab_visibility": "closed",
+    "jobs_tab_visibility": "shown",
     "knit_working_dir": "project",
     "line_ending_conversion": "posix",
     "margin_column": 100,
