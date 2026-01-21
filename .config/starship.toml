@@ -1,10 +1,15 @@
 #
-# Username, host, directory
+# Username, host, directory, shell indicator, line break, character
 #
 
-format = "$username${custom.hostsymbol}$hostname$all"
+format = """
+$username\
+${custom.hostsymbol}\
+$hostname\
+$directory\
+$all"""
 right_format = "$time"  # hidden unless enabled in [time] section
-# add_newline = false
+add_newline = true
 
 [username]
 style_root = "bright-red"
@@ -29,6 +34,18 @@ format = "$ssh_symbol[$hostname]($style) "
 truncation_length = 100
 truncate_to_repo = false
 style = "bright-yellow"
+
+[line_break]
+disabled = false
+
+[shell]
+bash_indicator = "\\$"
+zsh_indicator = "%"
+style = "bright-white"
+disabled = false
+
+[character]
+disabled = true
 
 #
 # Git
@@ -75,18 +92,6 @@ ignore_base = false
 format = "\\[[⏱ $duration]($style)\\] "
 disabled = true
 
-[line_break]
-disabled = true
-
 [time]
 format = "$time"
-disabled = true
-
-[shell]
-bash_indicator = "\\$"
-zsh_indicator = "%"
-style = "bright-white"
-disabled = false
-
-[character]
 disabled = true
