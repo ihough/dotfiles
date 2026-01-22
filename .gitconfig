@@ -177,6 +177,10 @@
 	remoteBranch = cyan
 	unmerged = blue
 
+[credential]
+	helper = cache
+	username = ihough
+
 [diff]
 
 	# Color moved lines of code.
@@ -189,6 +193,10 @@
 
 	# Use `hexdump` to diff binary files.
 	textconv = hexdump -v -C
+
+[http]
+	# Needed for Google Earth repositories
+	cookiefile = ~/.gitcookies
 
 [include]
 

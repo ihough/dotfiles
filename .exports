@@ -2,9 +2,6 @@
 
 # Based on https://github.com/mathiasbynens/dotfiles/blob/main/.exports
 
-# Set an SSH key for connecting to OAR jobs
-export OAR_JOB_KEY_FILE=~/.ssh/id_rsa_for_oar
-
 # Colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
