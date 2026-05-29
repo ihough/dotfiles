@@ -156,11 +156,9 @@
 	context = normal
 	meta = yellow bold
 	frag = cyan  # line info
-	# func = blue
 	old = red  # deletions
 	new = green  # additions
-	# commit = blue
-	whitespace = white bold
+	whitespace = normal red
 	oldMoved = red bold
 	newMoved = green bold
 
@@ -182,6 +180,9 @@
 
 	# Detect copies as well as renames.
 	renames = copies
+
+	# Highlight all whitespace changes
+	wsErrorHighlight = all
 
 [diff "bin"]
 
