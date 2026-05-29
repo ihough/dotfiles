@@ -13,12 +13,16 @@ brew "bash"
 brew "bash-completion@2"
 # Disk Usage/Free Utility - a better 'df' alternative
 brew "duf"
+# Fortran language server
+brew "fortls"
 # Libraries and data formats for array-oriented scientific data
 brew "netcdf"
 # Geospatial Data Abstraction Library
 brew "gdal"
 # Distributed revision control system
 brew "git"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # Improved top (interactive process viewer)
@@ -29,8 +33,6 @@ brew "imagemagick"
 brew "micromamba"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
 # Utility that provides fast incremental file transfer
@@ -62,6 +64,8 @@ cask "calibre"
 cask "cryptomator"
 # Voice and text chat software
 cask "discord"
+# Multi-platform multi-messaging app
+cask "ferdium"
 # Web browser
 cask "firefox"
 # Nerd font
@@ -115,8 +119,6 @@ cask "syntax-highlight"
 cask "temurin"
 # Customizable email client
 cask "thunderbird"
-# Git client focusing on power and productivity
-cask "tower"
 # Open-source code editor
 cask "visual-studio-code"
 # Open-source version of the X.Org X Window System
@@ -136,9 +138,6 @@ vscode "bierner.docs-view"
 vscode "charliermarsh.ruff"
 # Fortran language extensions
 vscode "fortran-lang.linter-gfortran"
-# Github Copilot
-vscode "github.copilot"
-vscode "github.copilot-chat"
 # Colour theme
 vscode "github.github-vscode-theme"
 # Path autocompletion
@@ -148,18 +147,19 @@ vscode "ms-python.debugpy"
 vscode "ms-python.pylint"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
+# CSV editor
+vscode "ms-toolsai.datawrangler"
 # Jupyter language extensions
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
-# C++ language extensions
-vscode "ms-vscode.cpptools"
 # Remote SSH
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
+# C++ language extensions [needed for Fortran language extensions]
+vscode "ms-vscode.cpptools"
 vscode "ms-vscode.remote-explorer"
 # Icon theme
 vscode "pkief.material-icon-theme"
