@@ -64,7 +64,7 @@ brew bundle --file Brewfile
 You can update the Brewfile using:
 
 ```bash
-brew bundle dump --describe
+brew bundle dump --force
 ```
 
 ## Updates

@@ -1,6 +1,3 @@
-# Generated with:
-#   brew bundle dump --describe
-
 tap "homebrew/bundle"
 
 #
@@ -37,6 +34,8 @@ brew "nano"
 brew "rename"
 # Utility that provides fast incremental file transfer
 brew "rsync"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Code-search similar to ack
@@ -64,6 +63,8 @@ cask "calibre"
 cask "cryptomator"
 # Voice and text chat software
 cask "discord"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
 # Multi-platform multi-messaging app
 cask "ferdium"
 # Web browser
@@ -96,8 +97,6 @@ cask "protonvpn"
 cask "qgis"
 # Quick Look generator for Markdown files
 cask "qlmarkdown"
-# Quick Look plugin for plaintext files without an extension
-cask "qlstephen"
 # Scientific and technical publishing system built on Pandoc
 cask "quarto"
 # Productivity application
@@ -147,8 +146,6 @@ vscode "ms-python.debugpy"
 vscode "ms-python.pylint"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
-# CSV editor
-vscode "ms-toolsai.datawrangler"
 # Jupyter language extensions
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
@@ -156,6 +153,7 @@ vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
 # Remote SSH
+vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 # C++ language extensions [needed for Fortran language extensions]
@@ -163,8 +161,11 @@ vscode "ms-vscode.cpptools"
 vscode "ms-vscode.remote-explorer"
 # Icon theme
 vscode "pkief.material-icon-theme"
-# R language extensions
+# Quarto language extensions
 vscode "quarto.quarto"
+# YAML syntax highlighting
+vscode "redhat.vscode-yaml"
+# R language extensions
 vscode "reditorsupport.r"
 vscode "reditorsupport.r-syntax"
 # TOML syntax highlighting
