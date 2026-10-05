@@ -209,16 +209,19 @@
 	# Push relevant annotated tags when pushing branches out.
 	followTags = true
 
-  # Automatically create remote branch when no upstream tracking exists
-  autoSetupRemote = true
+	# Automatically create remote branch when no upstream tracking exists
+	autoSetupRemote = true
 
 # URL shorthands
 
 [url "git@github.com:"]
+
 	insteadOf = gh:
 
 [url "git@gitlab.com:"]
+
 	insteadOf = gl:
 
 [url "git@gricad-gitlab.univ-grenoble-alpes.fr"]
+
 	insteadOf = ggl:

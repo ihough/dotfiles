@@ -14,9 +14,9 @@ unset file
 
 # Set homebrew PATH and env vars
 if [ -f /opt/homebrew/bin/brew ]; then  # Apple silicon
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv bash)"
 elif [ -f /usr/local/bin/brew ]; then  # Intel
-  eval "$(/usr/local/bin/brew shellenv)"
+  eval "$(/usr/local/bin/brew shellenv bash)"
 fi
 
 # Prepend ~/.local/bin to PATH
