@@ -158,11 +158,9 @@
 	context = normal
 	meta = yellow bold
 	frag = cyan  # line info
-	# func = blue
 	old = red  # deletions
 	new = green  # additions
-	# commit = blue
-	whitespace = white bold
+	whitespace = normal red
 	oldMoved = red bold
 	newMoved = green bold
 
@@ -177,6 +175,11 @@
 	remoteBranch = cyan
 	unmerged = blue
 
+[credential]
+
+	helper = cache
+	username = ihough
+
 [diff]
 
 	# Color moved lines of code.
@@ -184,6 +187,9 @@
 
 	# Detect copies as well as renames.
 	renames = copies
+
+	# Highlight all whitespace changes
+	wsErrorHighlight = all
 
 [diff "bin"]
 
@@ -210,16 +216,19 @@
 	# Push relevant annotated tags when pushing branches out.
 	followTags = true
 
-  # Automatically create remote branch when no upstream tracking exists
-  autoSetupRemote = true
+	# Automatically create remote branch when no upstream tracking exists
+	autoSetupRemote = true
 
 # URL shorthands
 
 [url "git@github.com:"]
+
 	insteadOf = gh:
 
 [url "git@gitlab.com:"]
+
 	insteadOf = gl:
 
 [url "git@gricad-gitlab.univ-grenoble-alpes.fr"]
+
 	insteadOf = ggl:

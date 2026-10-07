@@ -20,9 +20,6 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias -- -='cd -'
 
-# Shortcuts
-alias projects='cd ~/projects'
-
 #
 # Colour output
 #
