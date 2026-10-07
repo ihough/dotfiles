@@ -158,11 +158,9 @@
 	context = normal
 	meta = yellow bold
 	frag = cyan  # line info
-	# func = blue
 	old = red  # deletions
 	new = green  # additions
-	# commit = blue
-	whitespace = white bold
+	whitespace = normal red
 	oldMoved = red bold
 	newMoved = green bold
 
@@ -178,6 +176,7 @@
 	unmerged = blue
 
 [credential]
+
 	helper = cache
 	username = ihough
 
@@ -189,14 +188,13 @@
 	# Detect copies as well as renames.
 	renames = copies
 
+	# Highlight all whitespace changes
+	wsErrorHighlight = all
+
 [diff "bin"]
 
 	# Use `hexdump` to diff binary files.
 	textconv = hexdump -v -C
-
-[http]
-	# Needed for Google Earth repositories
-	cookiefile = ~/.gitcookies
 
 [include]
 
@@ -218,16 +216,19 @@
 	# Push relevant annotated tags when pushing branches out.
 	followTags = true
 
-  # Automatically create remote branch when no upstream tracking exists
-  autoSetupRemote = true
+	# Automatically create remote branch when no upstream tracking exists
+	autoSetupRemote = true
 
 # URL shorthands
 
 [url "git@github.com:"]
+
 	insteadOf = gh:
 
 [url "git@gitlab.com:"]
+
 	insteadOf = gl:
 
 [url "git@gricad-gitlab.univ-grenoble-alpes.fr"]
+
 	insteadOf = ggl:
